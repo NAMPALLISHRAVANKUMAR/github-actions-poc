@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="33bb4810-277a-4859-9660-2a0927c5651f" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="github-actions-pocFlow" doc:id="a500e059-4c94-4b15-b91d-cfcae2fec6cd" >
+		<http:listener doc:name="Listener" doc:id="f680608b-574c-45eb-9ab5-1ca799a57345" config-ref="HTTP_Listener_config" path="/action"/>
+		<set-payload value='#["app deployed"]' doc:name="Set Payload" doc:id="cf8c31d7-38aa-4489-8e7a-4e9dde0eb265" />
+	</flow>
+</mule>
